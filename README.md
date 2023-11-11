@@ -1,7 +1,7 @@
 ### Code changes include following:
 - Separate business layer from data layer
 - Synchronize an additional field 'bonusPointsBalance'
-- Update existing tests to verify bonusPointsBalance is updating correctly
+- Update the existing tests to verify that bonusPointsBalance is updating correctly
 - Introduced interfaces for potential future extensibility
 - Structured the application by breaking it into packages
 - Removed unreachable code
@@ -11,9 +11,9 @@
 - Reduce code complexity and improve code readability by introducing several new methods
 
 ### Further improvements to consider:
-I don't like we are updating duplicates one by one in for each.
+I don't like the way we are updating duplicates one by one in the for each loop.
 If it weren't for a 'fakeDatabase,' I would refactor it to perform the save operation in 'bulk' so that there would be only one SQL statement.
-In case we use OracleDB, we could update 1000 customers in one batch rather than hitting database 1000 times.
+In the case of using OracleDB, we could update 1000 customers in one batch instead of hitting database 1000 times.
 
 ExternalCustomer uses the same "Address" and "ShoppingList" as a Customer, which might pose a problem in the future.
 In the event that a Customer or ExternalCustomer undergoes changes and no longer aligns with the Address / ShoppingList, resulting in BC-compatibility issues, it's advisable to implement an additional mapping layer between them.
